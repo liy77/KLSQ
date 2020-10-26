@@ -8,7 +8,7 @@ const { createCanvas, loadImage } = require("canvas");
 module.exports = {
 name: "ship",
 category: "<:fun:767763175709474878> fun",
-usage: "ship <@user1> <@user2>",
+usage: "ship <@user> <@user2>",
 description: "Ship 2 users",
 run: async (client, message, args) => {
   let membro1 = message.mentions.members.first();
@@ -16,7 +16,7 @@ run: async (client, message, args) => {
 
   if (!membro1 || !membro2)
     return message.channel.send(
-      "Remember to mention two users to ship"
+      "Remember to mention two users to send"
     );
   if (membro1 === membro2)
     return message.channel.send("Mention two different members");
@@ -25,7 +25,7 @@ run: async (client, message, args) => {
   db.set(`Love_${membro1.user.id}_${membro2.user.id}}`, amor);
   db.set(`Love_${membro2.user.id}_${membro1.user.id}}`, amor);
   const loveIndex = Math.floor(amor / 10);
-  const loveLevel = "█".repeat(loveIndex) + ".".repeat(10 - loveIndex);
+  const loveLevel = "<a:bar:769300651146477628>".repeat(loveIndex) + "<a:bar2:769300651108204595>".repeat(10 - loveIndex);
 
   let nomeFim1 = membro1.user.username.length;
   let nomeFim2 = membro2.user.username.length;
@@ -62,42 +62,42 @@ run: async (client, message, args) => {
   let desc;
   if (amor > 90) {
     desc =
-      ":sparkling_heart: HMMM, is it going to happen or not? :sparkling_heart:\n``" +
+      ":sparkling_heart: HMMM, will roll or not? :sparkling_heart:\n :small_red_triangle_down:``" +
       membro1.user.username +
-      "``\n``" +
+      "``\n :small_red_triangle:``" +
       membro2.user.username +
       "``\n:heart: ``" +
       nomeship +
       "`` This is the perfect couple! :heart:";
   } else if (amor >= 70) {
     desc =
-      ":sparkling_heart: HMMM, is it going to happen or not? :sparkling_heart:\n``" +
+      ":sparkling_heart: HMMM, will roll or not? :sparkling_heart:\n :small_red_triangle_down:``" +
       membro1.user.username +
-      "``\n``" +
+      "``\n :small_red_triangle:``" +
       membro2.user.username +
       "``\n:neutral_face: ``" +
       nomeship +
-      "`` These are already catching up and haven't told anyone! :neutral_face:";
+      "`` They're already making out and haven't told anyone! :neutral_face:";
   } else if (amor >= 45) {
     desc =
-      ":sparkling_heart: HMMM, is it going to happen or not? :sparkling_heart:\n``" +
+      ":sparkling_heart: HMMM, will roll or not? :sparkling_heart:\n :small_red_triangle_down:``" +
       membro1.user.username +
-      "``\n``" +
+      "``\n :small_red_triangle:``" +
       membro2.user.username +
       "``\n:no_mouth: ``" +
       nomeship +
-      "`` Maybe just need a push " +
+      "`` Maybe just need " +
       membro2.user.username +
       " want... :no_mouth:";
   } else {
     desc =
-      ":sparkling_heart: HMMM, is it going to happen or not? :sparkling_heart:\n``" +
+      ":sparkling_heart: HMMM, will roll or not? :sparkling_heart:\n :small_red_triangle_down:``" +
       membro1.user.username +
-      "``\n``" +
+      "``\n :small_red_triangle:``" +
       membro2.user.username +
       "``\n:cry: ``" +
       nomeship +
-      "``I really wanted to say that it is possible but ...  :cry: ";
+      "``I really wanted to say that it is possible, but...  :cry: ";
   }
 
   const canvas = Canvas.createCanvas(384, 128);
@@ -122,7 +122,7 @@ run: async (client, message, args) => {
 
   let amorEmbed = new Discord.MessageEmbed()
     .setColor("#ff3399")
-    .setDescription("**" + amor + "%** [`" + loveLevel + "`]")
+    .setDescription("**" + amor + "%** " + loveLevel + "")
     .attachFiles([amorat])
     .setImage("attachment://chances-image.png");
 
