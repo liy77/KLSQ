@@ -2,7 +2,7 @@
 
   module.exports = {
   name: "eval",
-  description: "Change the bot status",
+  description: "View a eval value",
   usage: "eval <value>",
   category: "<:owner:767763175838842890> owner",
   ownerOnly: true,
