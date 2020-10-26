@@ -17,8 +17,8 @@ let person = message.mentions.members.first(message, args[0]);
 const love = db.get(`Love_${message.author.id}_${message.mentions.members.first().id}`) || db.get(`Love_${message.author.id}_${message.mentions.members.first().id}`) || Math.floor(Math.random() * 100);
 db.set(`Love_${message.author.id}_${message.mentions.members.first().id}}`, love);
 db.set(`Love_${message.mentions.members.first().id}_${message.author.id}`, love);
-const loveIndex = Math.floor(love / 2);
-const loveLevel = "█".repeat(loveIndex) + ".".repeat(41 - loveIndex);
+const loveIndex = Math.floor(love / 10);
+const loveLevel = "<a:bar:769300651146477628>".repeat(loveIndex) + "<a:bar2:769300651108204595>".repeat(10 - loveIndex);
 
 const contents = {
     description: null,
@@ -39,7 +39,7 @@ let user2 = message.mentions.users.first().username
 let fullname = user1.concat(user2)
 let loveEmbed = new MessageEmbed()
 .setAuthor("❤ Love percentage ❤", message.author.displayAvatarURL())
-.setDescription(`:heartpulse: **${message.author.tag}**\n:heartpulse: **${message.mentions.users.first().tag}**\n\n${love}% **||** \`${loveLevel}\` **||**\n\n **Result:** \`${contents.text}\``)
+.setDescription(`:heartpulse: **${message.author.tag}**\n:heartpulse: **${message.mentions.users.first().tag}**\n\n${love}% **||** ${loveLevel} **||**\n\n **Result:** \`${contents.text}\``)
 message.channel.send(loveEmbed)
  }
 }
